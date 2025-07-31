@@ -14,7 +14,12 @@
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+rm -rf ./feeds/luci/applications/luci-app-argon-config
+rm -rf ./feeds/luci/themes/luci-theme-argon
+
+git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+
 
 # Modify hostname
 sed -i 's/ImmortalWrt/ImmortalWrt-24.10-5.4-PW-$(shell TZ="Asia/Shanghai" date +"%Y%m%d")/g' package/base-files/files/bin/config_generate
