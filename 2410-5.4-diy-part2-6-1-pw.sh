@@ -25,7 +25,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 sed -i 's/ImmortalWrt/P3N99-$(shell TZ="Asia/Shanghai" date +"%Y%m%d")/g' package/base-files/files/bin/config_generate
 
 # Modify filename, add date prefix
-sed -i 's|IMG_PREFIX:=|IMG_PREFIX:=$(shell TZ="Asia/Shanghai" date +"%Y%m%d")-PW-24.10-5.4-|' include/image.mk
+sed -i 's|IMG_PREFIX:=|IMG_PREFIX:=$(shell TZ="Asia/Shanghai" date +"%Y%m%d")-24.10-5.4-|' include/image.mk
 
 # Modify ppp-down, add sleep 3. 2025-6-13 source code is update, no need this
 #sed -i '$a\\sleep 3' package/network/services/ppp/files/lib/netifd/ppp-down
